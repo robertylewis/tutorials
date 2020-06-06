@@ -22,7 +22,7 @@ jobs:
           curl https://raw.githubusercontent.com/Kha/elan/master/elan-init.sh -sSf | sh -s -- -y
           echo "::add-path::$HOME/.elan/bin"
       - name: install leanproject 
-        run: sudo pip3 install mathlibtools\
+        run: sudo pip install mathlibtools
       - name: upgrade project
         run: leanproject up
       - name: build project 
