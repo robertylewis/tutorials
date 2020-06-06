@@ -27,5 +27,7 @@ jobs:
         run: lean src
       - name: push changes
         run: |
+          git config --global user.email "leanprover.community@gmail.com"
+          git config --global user.name "leanprover-community-bot"
           git commit -am "auto update Lean/mathlib versions"
           git push
