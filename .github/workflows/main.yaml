@@ -1,0 +1,21 @@
+on:
+  schedule:
+   - cron: '0 4 * * 1'
+  push:
+
+jobs:
+  publish_archive_job:
+    runs-on: ubuntu-latest
+    name: A job to publish zulip-archive in GitHub pages
+    steps:
+      - uses: actions/checkout@v2
+      - name: install leanproject
+        run: wget -q https://raw.githubusercontent.com/leanprover-community/mathlib-tools/master/scripts/install_debian.sh && bash install_debian.sh ; rm -f install_debian.sh && source ~/.profile
+      - name: upgrade project
+        run: leanproject up
+      - name: build project 
+        run: lean src
+      - name: push changes
+        run: |
+          git commit -am "auto update Lean/mathlib versions"
+          git push
