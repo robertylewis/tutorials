@@ -16,9 +16,11 @@ jobs:
         with:
           python-version: 3.8
       - name: install Python dependencies
-        run: python -m pip install --upgrade pip urllib3 certifi requests PyGithub gitpython toml bs4 mathlibtools setuptools
-      - name: install leanproject
-        run: wget -q https://raw.githubusercontent.com/leanprover-community/mathlib-tools/master/scripts/install_debian.sh && bash install_debian.sh ; rm -f install_debian.sh && source ~/.profile
+        run: python -m pip install --upgrade pip urllib3 certifi requests PyGithub gitpython toml bs4
+      - name: install elan
+        run: curl https://raw.githubusercontent.com/Kha/elan/master/elan-init.sh -sSf | sh
+      - name: install leanproject 
+        run: sudo pip3 install mathlibtools\
       - name: upgrade project
         run: leanproject up
       - name: build project 
