@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: 3.8
       - name: install Python dependencies
-        run: python -m pip install --upgrade pip requests markdown2 toml mathlibtools
+        run: python -m pip install --upgrade pip mathlibtools
       - name: install Lean
         run: |
           curl https://raw.githubusercontent.com/Kha/elan/master/elan-init.sh -sSf | sh -s -- -y
